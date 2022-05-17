@@ -10,13 +10,13 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'    // Java 프로그램을 위한 제공
+apply plugin: 'eclipse' // 이클립스 IDE 설정파일을 생성, 프로젝트에 import
+apply plugin: 'org.springframework.boot'    // spring boot project를 run 할 수 있게 하는 플러그인
+apply plugin: 'io.spring.dependency-management' // maven 의존성 관리를 위한 플러그인
 
-group 'com.jojoldu.book'
-version '1.0-SNAPSHOT'
+group 'com.jojoldu.book' // 프로젝트 생성시의 groupId
+version '1.0-SNAPSHOT' // 애플리케이션의 버전. SHAPSHOT 은 개발단계라는 뜻.
 sourceCompatibility = 1.8
 
 repositories {
@@ -24,11 +24,15 @@ repositories {
 }
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
     implementation('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')   // 스프링 부트용 Spring Data Jpa 추상화 라이브러리, 버전에 맞춰 자동으로 JPA 관련 라이브러리들의 버전을 관리.
+    implementation('com.h2database:h2') // 인메모리 관계형 데이터베이스, 별도의 설치 없이 프로젝트 의존성만으로 관리 가능, 메모리에 설치되므로 애플리케이션 재시작할 때마다 초기화된다는 점을 이용해 테스트 용도로 많이 쓰임, 여기선 로컬, 테스트 구동에서 사용
+
 }
 
 dependencies {
