@@ -18,7 +18,7 @@ public class Posts extends BaseTimeEntity {
     private Long id;
 
     @Column(length = 500, nullable = false) // 테이블의 칼럼을 나타냄. 굳이 선언하지 않아도 해당 클래스의 필ㄷ는 모두 칼럼이 되지만, 기본값 외에 추가로 변경이 필요한 옵션이 있으면 사용.
-                                            // 문자열의 경우 VARCHAR(255)가 기본값, 사이즈를 500으로 늘리거나, 타입을 TEXT로 변경하고 싶을 때 사용.
+                                            // 문자열의 경우 VARCHAR(255)가 기본값, 사이즈를 500으로 늘리거나, 타입을 TEXT 로 변경하고 싶을 때 사용.
     private String title;
 
     @Column(columnDefinition = "TEXT", nullable = false)
