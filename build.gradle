@@ -15,10 +15,9 @@ apply plugin: 'eclipse' // 이클립스 IDE 설정파일을 생성, 프로젝트
 apply plugin: 'org.springframework.boot'    // spring boot project 를 run 할 수 있게 하는 플러그인
 apply plugin: 'io.spring.dependency-management' // maven 의존성 관리를 위한 플러그인
 
-sourceCompatibility = 1.8
 group 'com.jojoldu.book' // 프로젝트 생성시의 groupId
 version '1.0-SNAPSHOT' // 애플리케이션의 버전. SHAPSHOT 은 개발단계라는 뜻.
-
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
