@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06f2ec0b-85db-4a63-b61b-a2ad936f4f18" name="Changes" comment="ignore-application-oauth.properties">
+    <list default="true" id="06f2ec0b-85db-4a63-b61b-a2ad936f4f18" name="Changes" comment="Chapter 5-3. google login 구현">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jojoldu/book/springboot/web/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jojoldu/book/springboot/web/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/app/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/app/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +43,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -238,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653269378712</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Chapter 5-3. google login 구현">
+      <created>1653282087162</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653282087162</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,7 +265,8 @@
     <MESSAGE value="chapter 3-2. PostsService 값이 IndexController 에 null 값이 들어왔던 issue." />
     <MESSAGE value="chapter 4 완료." />
     <MESSAGE value="ignore-application-oauth.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="ignore-application-oauth.properties" />
+    <MESSAGE value="Chapter 5-3. google login 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chapter 5-3. google login 구현" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

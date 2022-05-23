@@ -1,5 +1,6 @@
 package com.jojoldu.book.springboot.web;
 // 페이지와 관련된 controller 는 모두 IndexController 로 컨트롤 한다.
+import com.jojoldu.book.springboot.config.auth.LoginUser;
 import com.jojoldu.book.springboot.config.auth.dto.SessionUser;
 import com.jojoldu.book.springboot.service.posts.PostsService;
 import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
@@ -24,15 +25,24 @@ public class IndexController {
                                                 // 따라서 호출된 메소드에 대한 필드값이 들어가지 않았기 때문에 null 값이 리턴되지 않았나 추측.
     private final HttpSession httpSession;
 
-    @GetMapping("/")    // 머스테치 스타터 덕분에 컨트롤러에서 문자열 반환 시 앞의 경로와 뒤의 파일 확장자는 자동으로 지정. (앞의 경로는 src/main/resource , 뒤의 확장자는 .mustache)
-    public String index(Model model) {  // model. 서버 템플릿 엔진에서 사용할 수 있는 객체를 저장. 여기서는 postsService.findAllDesc() 로 가져온 결과를 posts 로 index.mustache 로 전달.
+//    @GetMapping("/")    // 머스테치 스타터 덕분에 컨트롤러에서 문자열 반환 시 앞의 경로와 뒤의 파일 확장자는 자동으로 지정. (앞의 경로는 src/main/resource , 뒤의 확장자는 .mustache)
+//    public String index(Model model) {  // model. 서버 템플릿 엔진에서 사용할 수 있는 객체를 저장. 여기서는 postsService.findAllDesc() 로 가져온 결과를 posts 로 index.mustache 로 전달.
+//        model.addAttribute("posts", postsService.findAllDesc());
+//        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+//        /* (SessionUser) httpSession.getAttribute("user"): CustomOAuth2UserService 에서 로그인 성공시 세션 SessionUser 를 저장하도록 구성.
+//                                                            즉, 로그인 성공 시 httpSession.getAttribute("user") 에서 값을 가져올 수 있음.*/
+//        if(user != null) {
+//            /* if(user != null): 세션에 저장된 값이 있을 때만 model 에 userName 으로 등록.
+//                                    세션에 저장된 값이 없으면 model 에 아무런 값이 없는 상태이니 로그인 버튼만 보임.*/
+//            model.addAttribute("userName", user.getName());
+//        }
+//        return "index";
+//    }
+    @GetMapping("/")
+    public String index(Model model, @LoginUser SessionUser user) { // @LoginUser SessionUser user: 기존에 (User) httpSession.getAttribute("user") 로 가져오던 세션 정보 값이 개선. @LoginUser 만 사용하면 언제든 세션 정보 가져올 수 있음.
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-        /* (SessionUser) httpSession.getAttribute("user"): CustomOAuth2UserService 에서 로그인 성공시 세션 SessionUser 를 저장하도록 구성.
-                                                            즉, 로그인 성공 시 httpSession.getAttribute("user") 에서 값을 가져올 수 있음.*/
-        if(user != null) {
-            /* if(user != null): 세션에 저장된 값이 있을 때만 model 에 userName 으로 등록.
-                                    세션에 저장된 값이 없으면 model 에 아무런 값이 없는 상태이니 로그인 버튼만 보임.*/
+
+        if( user != null ) {
             model.addAttribute("userName", user.getName());
         }
         return "index";
